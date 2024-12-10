@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>My first three.js app</title>
-		<style>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    <title>My first three.js app</title>
+		<!-- <style>
 			body { margin: 0; }
-		</style>
-	</head>
-	<body>
-      <script type="importmap">
-        {
-          "imports": {
-            "three": "https://unpkg.com/three/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three/examples/jsm/" 
-          }
-        }
-      </script>    
-
-	  <main>
-		<div id = "Container3D"></div>
-	  </main>
-		<script type="module" src="main.js"></script>
-	</body>
+		</style> -->
+  </head>
 </html>
+  <body>
+    <h1>3JS Final Display</h1>
 
+    <p>Visualized by Justin Louie</p>
+    <!-- <p>
+      Maybe you add a link(<a href="#">home</a>) or two(<a href="#">project</a>)
+    </p> -->
+
+    <!-- Here I surrouned my js sketch with the id div talk. Again I call it portrait in my sketch.js, so it's portrait here -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three/examples/jsm/" 
+        }
+      }
+    </script>    
+
+  <main>
+  <div id = "Container3D"></div>
+  </main>
+  <script type="module" src="main.js"></script>
+
+    <p>
+      Here is a 3D model that you can rotate around and zoom in on using 3JS.
+    </p>
+    <p><br>Model from KhoaMinh on Sketchfab<br> https://sketchfab.com/3d-models/the-phantom-rogue-a4938aaa56f3436a9559acc6af929826</p>
+  </body>
+</html>
