@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+//music from https://www.youtube.com/watch?v=9It9rXAgjVQ
+
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -71,7 +73,7 @@ const audioLoader = new THREE.AudioLoader();
 
 const backgroundSound = new THREE.Audio(listener);
 
-audioLoader.load('../music.mp3', function(buffer) {
+audioLoader.load('../sounds/music.mp3', function(buffer) {
     backgroundSound.setBuffer(buffer);
     backgroundSound.setLoop(true);
     backgroundSound.setVolume(0.4);
