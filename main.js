@@ -6,7 +6,7 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x505050);
+renderer.setClearColor(0xCBC3E3);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 renderer.shadowMap.enabled = true;
@@ -39,21 +39,21 @@ const groundMaterial = new THREE.MeshStandardMaterial({
 const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
 scene.add(groundMesh);
 
-//axis guide
+// axis guide
 // const axesHelper = new THREE.AxesHelper( 5 );
 // scene.add( axesHelper );
 
-const spotLight = new THREE.SpotLight(0xffffff, 50, 100, 0.2, 0.5);
-spotLight.position.set(0, 10, 0);
+const spotLight = new THREE.SpotLight(0xFFFFFF, 50, 100, 0.2, 0.5);
+spotLight.position.set(10, 0, 15);
 spotLight.castShadow = true;
 scene.add(spotLight);
 
 const topLight = new THREE.DirectionalLight(0xFFFFFF, 1);
-topLight.position.set(500,500,500);
+topLight.position.set(100,100,100);
 topLight.castShadow = true;
 scene.add(topLight);
 
-const light = new THREE.AmbientLight( 0x404040 ); 
+const light = new THREE.AmbientLight( 0xFF0000 ); 
 scene.add( light );
 
 const loader = new GLTFLoader();
@@ -62,6 +62,20 @@ loader.load('gltf/scene.gltf', (gltf) => {
     mesh.position.set(0, 2.5, 0);
     mesh.rotation.y = 4.3;
     scene.add(mesh);
+});
+
+const listener = new THREE.AudioListener;
+camera.add(listener);
+
+const audioLoader = new THREE.AudioLoader();
+
+const backgroundSound = new THREE.Audio(listener);
+
+audioLoader.load('../music.mp3', function(buffer) {
+    backgroundSound.setBuffer(buffer);
+    backgroundSound.setLoop(true);
+    backgroundSound.setVolume(0.4);
+    backgroundSound.play();
 });
 
 function animate() {
